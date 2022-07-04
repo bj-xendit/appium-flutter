@@ -3,7 +3,9 @@ const assert = require("assert");
 const {byTooltip, byValueKey, byType, bySemanticsLabel} = require('appium-flutter-finder');
 
 const env = 'android';
+//TODO Enter username
 const username = '';
+//TODO Enter password
 const password = '';
 
 
@@ -85,7 +87,8 @@ await driver.elementClick(byValueKey('keyButtonBack'));
 
 
 
-await client.deleteSession();
+await driver.deleteSession();
+
 }
 main();
 
