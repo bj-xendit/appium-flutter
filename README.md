@@ -11,5 +11,6 @@ To run this project locally:
 1. Run `npm install` in the project root directory to install dependencies
 2. Update `index.js` file with provided `username` and `password`
 3. Put provided `app-debug.apk` in the project root directory
-3. Run `node index.js` - make sure Appium server is already running at this point
+4. Update `index.js` file with APK file location
+5. Run `node index.js` - make sure Appium server is already running at this point
 
