@@ -10,6 +10,10 @@ const assert = require("assert");
         const loginButton = finder.bySemanticsLabel('Login'); 
         await driver.elementClick(loginButton);
     }
+
+    async navigateToSIgnupScreen(){
+      
+    }
     
 }
 module.exports = Onboarding;

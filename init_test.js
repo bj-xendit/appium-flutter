@@ -3,19 +3,22 @@ const CreateOrderE2E = require("./tests/e2e/create_order_e2e");
 
 class InitTest{
     constructor(){}
-    init(driver){
-
-        // Test Data
+  
+   async testAuthenticationFlow(driver){
         var email = '';
         var password = '';
-
-
-
-    //   new  AuthenticationE2E().loginWithEmail(driver,email,password,'');
-
-    new CreateOrderE2E().createOrder(driver,email,password,'');
-
-
+   await   new  AuthenticationE2E().loginWithEmail(driver,email,password,'');
     }
+
+   async testCreateOrderFlow(driver){
+        var email = '';
+        var password = '';
+     await   new CreateOrderE2E().createOrder(driver,email,password,'');
+    }
+
+   async init(driver){
+       await this.testAuthenticationFlow(driver);
+    }
+
 }
 module.exports = InitTest;
