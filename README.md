@@ -9,7 +9,7 @@ Before attempting to run this project locally:
 To run this project locally:
 1. Clone this project with `git clone https://github.com/bj-xendit/appium-flutter`
 1. Run `npm install` in the project root directory to install dependencies
-2. Update `index.js` file with provided `username` and `password`
+2. Update `init_test.js` file with provided `username` and `password`
 3. Put provided `app-debug.apk` in the project root directory
 4. Update `index.js` file with APK file location
 5. Run `node index.js` - make sure Appium server is already running at this point
