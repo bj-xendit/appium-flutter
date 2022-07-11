@@ -1,6 +1,6 @@
 const wdio = require("webdriverio");
 const assert = require("assert");
-const {byTooltip, byValueKey, byType, bySemanticsLabel} = require('appium-flutter-finder');
+const {byTooltip, byValueKey, byType, bySemanticsLabel, byText} = require('appium-flutter-finder');
 
 const env = 'android';
 //TODO Enter username
@@ -44,6 +44,7 @@ await driver.elementClick(bySemanticsLabel('e.g. name@email.com'));
 await driver.execute('flutter:enterText',username)
 await driver.elementClick(byValueKey('keyPasswordField'));
 await driver.execute('flutter:enterText',password);
+assert.strictEqual( await driver.getElementText(byValueKey('keyLoginButton')),'Login');
 await driver.elementClick(byType('ElevatedButton'));
 
 // Enter PIN
@@ -55,6 +56,7 @@ for(i = 0; i < 6; i ++){
 
 // Biometric
 await driver.execute('flutter:waitFor', bySemanticsLabel('Set up a quick login'));
+assert.strictEqual( await driver.getElementText(byValueKey('keySkipForNow')),'Skip for now');
 await driver.elementClick(byValueKey('keySkipForNow'))
 
 
@@ -68,12 +70,15 @@ await driver.elementClick(byValueKey('keyRecipientNameField'));
 await driver.execute('flutter:enterText','John Doe');
 await driver.elementClick(byValueKey('keyRecipientPhoneField'));
 await driver.execute('flutter:enterText','9800000000');
+assert.equal( await driver.getElementText(byText('Save')),'Save');
 await driver.elementClick(byValueKey('keyButtonPrimary'));
+
 
 // Step 2 Enter price
 await driver.elementClick(byValueKey('keyEnterPrice'));
 await driver.elementClick(byValueKey('keyFormField'));
 await driver.execute('flutter:enterText','40000');
+assert.strictEqual( await driver.getElementText(byText('Save')),'Save');
 await driver.elementClick(byValueKey('keyButtonSave'));
 
 //Step 3 Select save
@@ -86,7 +91,7 @@ await driver.elementClick(byValueKey('keyButtonClose'));
 await driver.elementClick(byValueKey('keyButtonBack'));
 
 
-
+await driver.execute('flutter:waitFor',bySemanticsLabel('Create Order'));
 await driver.deleteSession();
 
 }
