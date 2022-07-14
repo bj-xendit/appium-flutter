@@ -11,11 +11,14 @@ path: '/wd/hub',
 port: 4723,
 capabilities: {
 platformName: "Android",
-platformVersion: "11",
+platformVersion: "9",
 deviceName : "Android Emulator",
-app:"/Users/bijay/Documents/Xendit/appium-test/app-debug.apk",
+app:__dirname + "/app/android/app-debug.apk",
 appPackage: "co.xendit.business.dev",
-automationName: "Flutter"
+automationName: "Flutter",
+//newCommandTimeout: 60,
+retryBackoffTime: 500,
+connectionRetryTimeout:60
 }
 } : {
  platformName: 'iOS',

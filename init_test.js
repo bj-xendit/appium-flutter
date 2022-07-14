@@ -5,19 +5,20 @@ class InitTest{
     constructor(){}
   
    async testAuthenticationFlow(driver){
-        var email = '';
-        var password = '';
+        var email = 'vaibhav.khachane-neosoft@xendit.co';
+        var password = 'Xendit@11111';
    await   new  AuthenticationE2E().loginWithEmail(driver,email,password,'');
     }
 
    async testCreateOrderFlow(driver){
-        var email = '';
-        var password = '';
+        var email = 'vaibhav.khachane-neosoft@xendit.co';
+        var password = 'Xendit@11111';
      await   new CreateOrderE2E().createOrder(driver,email,password,'');
     }
 
    async init(driver){
        await this.testAuthenticationFlow(driver);
+       //await this.testCreateOrderFlow(driver);
     }
 
 }
